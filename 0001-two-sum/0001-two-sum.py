@@ -1,13 +1,10 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        storage = dict()
+        x = dict()
+        
         for i in range(len(nums)):
-            complement = target - nums[i]
-            if complement in storage:
-                return [storage[complement], i]
-            if nums[i] in storage:
-                continue
-            storage[nums[i]] = i
-           
+            if target - nums[i] in x:
+                return i , x.get(target-nums[i])
+            x[nums[i]] = i
         
         
