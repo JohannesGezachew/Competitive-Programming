@@ -4,4 +4,4 @@ class Solution:
         comparizer = max(candies)
 
         ans = [True if i >= comparizer else False for i in out]
-        return(ans)
+        return ans
