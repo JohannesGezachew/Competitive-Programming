@@ -7,14 +7,20 @@ class Solution:
             if nums[i] <= nums[i+1]:
                 count += 1
             else:
-                print(nums[i])
-                print(nums.pop(i))
+
+                temp = list(nums)
+                x = nums.pop(i)
                 if nums == sorted(nums):
                     return True
-                else:return False
+                else:
+                    temp.pop(i+1)
+                    print(temp)
+                    if temp == sorted(temp):
+                        return True
+                    else:
+                        return False
 
-        print(count)
-        print(len(nums))
+
         if count == (len(nums)-1):
             return True
         else:
