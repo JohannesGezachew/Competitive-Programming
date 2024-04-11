@@ -14,7 +14,6 @@ class Solution:
                     return True
                 else:
                     temp.pop(i+1)
-                    print(temp)
                     if temp == sorted(temp):
                         return True
                     else:
