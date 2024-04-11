@@ -1,26 +1,15 @@
 class Solution:
     def checkPossibility(self, nums: List[int]) -> bool:
-        count  = 0
-        if len(nums) < 2:
-            return True
-        for i in range(len(nums)-1):
-            if nums[i] <= nums[i+1]:
-                count += 1
-            else:
+        modified = False
+        n = len(nums)
+        for i in range(1, n):
+            if nums[i] < nums[i - 1]:
+                if modified:
+                    return False
+                if i == 1 or nums[i] >= nums[i - 2]:
 
-                temp = list(nums)
-                x = nums.pop(i)
-                if nums == sorted(nums):
-                    return True
+                    nums[i - 1] = nums[i]
                 else:
-                    temp.pop(i+1)
-                    if temp == sorted(temp):
-                        return True
-                    else:
-                        return False
-
-
-        if count == (len(nums)-1):
-            return True
-        else:
-            return False
+                    nums[i] = nums[i - 1]
+                modified = True
+        return True
