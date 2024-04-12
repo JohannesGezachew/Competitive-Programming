@@ -1,7 +1,6 @@
 class Solution:
     def rearrangeArray(self, nums: List[int]) -> List[int]:
-        left = 0
-        right = 1
+ 
         neg = []
         pos = []
         ans =[]
