@@ -3,10 +3,10 @@ class Solution:
         ans = 0
         if n < 8:
             y = 0
-            for i in range(n+1):
+            for i in range(n + 1):
                 y += i
-            
-            return(y)
+
+            return y
         else:
             left = 1
             count = 1
