@@ -1,13 +1,10 @@
 class Solution:
     def largestOddNumber(self, num: str) -> str:
-        odd = []
-        if int(num) % 2 == 0:
-            for i in num:
-                if not int(i) % 2 ==0:
-                    odd.append(i)
-            if odd == []:
-                return ""
-            else:
-                return(max(odd))
+        right = len(num) - 1
+        while right >= 0 and int(num[right]) % 2 == 0:
+            right -= 1
+        
+        if right == -1:
+            return ""
         else:
-            return num
+            return num[:right+1]
