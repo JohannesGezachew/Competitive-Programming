@@ -2,7 +2,7 @@ class Solution:
     def largestMerge(self, word1: str, word2: str) -> str:
         word1 = list(word1)
         word2 = list(word2)
-        merge = []
+        merge = []*(len(word1)+len(word2))
         
         while word1 and word2:
             if word1 > word2:
