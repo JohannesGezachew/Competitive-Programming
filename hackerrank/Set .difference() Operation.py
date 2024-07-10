@@ -1,0 +1,7 @@
+n = int(input().strip())
+a = set(map(int, input().strip().split()))
+m = int(input().strip())
+b = set(map(int, input().strip().split()))
+difference = a.difference(b)
+count = len(difference)
+print(count)
