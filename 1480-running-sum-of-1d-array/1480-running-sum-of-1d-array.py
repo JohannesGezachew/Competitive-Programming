@@ -2,7 +2,7 @@ class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:
         ans = []
         pre = 0
-        for i in nums:
-            pre += i
+        for num in nums:
+            pre += num
             ans.append(pre)
         return ans
