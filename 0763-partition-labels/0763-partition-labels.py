@@ -1,17 +1,14 @@
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
+        lelements = {l:i for i , l in enumerate(s)}
         left = right = 0
-        answer = []
-        lidx = 0
+        ans = []
 
-        while right < len(s):
-            right = s.rindex(s[left])
-            while left < right:
-                left += 1
-                right = max(right, s.rindex(s[left]))
-            
-            if left == right:
-                answer.append(right - lidx + 1)
-                lidx = left = right = right + 1
-        
-        return answer
+        for i,l in enumerate(s):
+            left = max(left, lelements[l])
+            if i == left:
+                ans.append(i - right+ 1)
+                right = i + 1 
+        return ans
+
+    
