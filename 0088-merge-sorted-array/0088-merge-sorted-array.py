@@ -3,15 +3,19 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        left = len(nums1) - len(nums2) - 1 
-        right = len(nums2) - 1
-        current = len(nums1) - 1 
+        left = m -1
+        right = n -1
+        while left >= 0 and right >= 0:
+            if nums1[left] >= nums2[right]:
+                nums1[left+right+1] = nums1[left]
+                left -= 1
+
+            else:
+                nums1[left+right+1] = nums2[right]
+                right -= 1
 
         while right >= 0:
-            if left >= 0 and nums1[left] > nums2[right]:
-                nums1[current] = nums1[left]
-                left -= 1
-            else:
-                nums1[current] = nums2[right]
-                right -= 1
-            current -= 1
+            nums1[left+right+1] = nums2[right]
+            right -= 1
+            
+        return nums1
