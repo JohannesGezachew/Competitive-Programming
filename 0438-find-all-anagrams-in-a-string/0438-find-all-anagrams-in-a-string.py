@@ -1,26 +1,19 @@
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
-        length_s = len(s)
-        length_p = len(p)
+        counter_p = Counter(p)
+        window_length = len(p)
+        current = Counter(s[:window_length])
+        result = []
         
-        if length_p > length_s:
-            return []
+        for i in range(len(s) - window_length + 1):
+            if i > 0:
+
+                current[s[i - 1]] -= 1
+                if current[s[i - 1]] == 0:
+                    del current[s[i - 1]]
+                current[s[i + window_length - 1]] += 1
+            
+            if current == counter_p:
+                result.append(i)
         
-        anagram_indices = []
-
-        count_p = Counter(p)
-        
-        count_window = Counter(s[:length_p-1])
-
-        for i in range(length_p-1, length_s):
-            count_window[s[i]] += 1
-
-            if count_window == count_p:
-                anagram_indices.append(i - length_p + 1)
-
-            count_window[s[i - length_p + 1]] -= 1
-
-            if count_window[s[i - length_p + 1]] == 0:
-                del count_window[s[i - length_p + 1]]
-        
-        return anagram_indices
+        return result
