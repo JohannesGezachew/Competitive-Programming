@@ -1,33 +1,14 @@
-class Solution(object):
-    def isValid(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
-        z = []
-        for i in range (len(s)):
-            if s[i] == "(":
-                z.append(s[i])
-            elif s[i] ==")" and z and z[-1] == "(":
-                z.pop()
-            elif s[i] == "[":
-                z.append(s[i])
-            elif s[i] =="]"and z and z[-1] == "[":
-                z.pop()
-            elif s[i] == "{":
-                z.append(s[i])
-            elif s[i] =="}" and z and z[-1] == "{":
-                z.pop() 
+class Solution:
+    def isValid(self, s: str) -> bool:
+        container  = {")":"(" , "]":"[", "}":"{"}
+        stack = []
+
+        for i in range(len(s)):
+            if s[i] in container:
+                if not stack or container[s[i]] != stack.pop():
+                    return False      
             else:
-                return(False)
-             
-        if z:
-            return(False)
-        else:
-            return(True)
+                stack.append(s[i])
+            
+        return False if stack else True
 
-
-
-
-
-        
