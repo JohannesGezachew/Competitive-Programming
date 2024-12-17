@@ -9,7 +9,7 @@ class Solution:
                 res = min(res, right - left + 1)
                 msum -= nums[left]
                 left += 1
-            right += 1
+            # right += 1
         return 0 if res == float("inf") else res
 
 
