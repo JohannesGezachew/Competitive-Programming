@@ -5,7 +5,6 @@ class Solution:
         lon = 0
         pure = set()
         while right < len(s):
-            print(pure)
             while s[right] in pure:
                 pure.remove(s[left])
                 left += 1
