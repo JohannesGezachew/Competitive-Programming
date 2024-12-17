@@ -9,6 +9,8 @@ class Solution:
                 x = stack.pop() 
                 holder[x] = nums2[i]
             stack.append(nums2[i])
+
+            
         for num in nums1:
             res.append(holder[num])
         return res 
