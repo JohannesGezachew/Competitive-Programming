@@ -4,16 +4,20 @@ class Solution(object):
         :type command: str
         :rtype: str
         """
-        x = []
-        for i in range(len(command)-1):
-            if command[i] =="G":
-                x.append("G")
-            elif command[i] =="(" and command[i+1] ==")":
-                x.append("o")
-            elif command[i] =="(" and command[i+1] =="a":
-                x.append("al")
-        if command[len(command)-1] =="G":
-                x.append("G")
+        x = 0
+        ans = []
+        while x < len(command):
+            if command[x] == "G":
+                ans.append("G")
+                x += 1
+            elif command[x:x + 2] == "()":
+                ans.append("o")
+                x += 2
+            else :
+                ans.append("al")
+                x += 4
 
-        return "".join(x)
-                
+        return "".join(ans)
+
+
+        
