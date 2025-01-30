@@ -1,11 +1,9 @@
-class Solution:
-    def isPalindrome(self, x: int) -> bool:
+class Solution(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
         x = str(x)
-        i = 0
-        j = len(x) - 1
-        while i <= j:
-            if x[i] != x[j]:
-                return False
-            i += 1
-            j -= 1
-        return True
+        y = x[::-1]
+        return (x == y)        
